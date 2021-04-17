@@ -1,13 +1,13 @@
-
+//Model
 class Model {//construction de la classe avec le constructeur
     constructor(nom, mdp){
         this.nom = nom;
         this.mdp = mdp;
     }
 
-    //function qu'on va utiliser pour remplacer le mot de passe
+    //functions qu'on va utiliser pour remplacer le mot de passe, retourner le mot de passe et le nom de la personne
     RemplaceMDP(newMdp){
-        this.mdp = newMdp; // this.mdp = la propriété de la classe model instancier plus haut newMdp = paramètre de la fonction
+        this.mdp = newMdp;
     }
     
     GetName(){
@@ -22,9 +22,7 @@ class Model {//construction de la classe avec le constructeur
 }
 
 
-
-
-
+//Presenter
 class Presenter {
     constructor(view){
         this.view = view;
@@ -34,22 +32,19 @@ class Presenter {
     SetModel(model){
         this.model = model;
     }
-
+    //Fonction qui rennvoie vers la fonction pour changer le mdp avec le nouveau mdp en paramètre
+    //puis recupère le mdp et nom via le model renvoie vers la vue dans displayMessage
     ChangePassword(password){
         this.model.RemplaceMDP(password);
         this.view.displayMessage(this.model.GetName(),this.model.GetMdp());
     }
 
-    CurrentNamePassword(){
-        this.view.displayMessage(this.model.GetName(),GetMdp());
-    }
+    //CurrentNamePassword(){
+        //this.view.displayMessage(this.model.GetName(),this.model.GetMdp());
+    //}
 }
 
-
-
-
-
-
+//View
 class View {
     constructor(){
         this.presenter = null;
@@ -73,26 +68,15 @@ class View {
 function submit_by_id() {
     console.log(model);
     let Password = document.getElementById("MDP").value;
-    document.getElementById("form_id").submit(); //form submission
+    document.getElementById("form_id").submit(); 
     presenter.ChangePassword(Password);
 }
 
 let model = new Model("Mathilde", "monmotdepasse");
 let view = new View();
 let presenter = new Presenter(view);
-presenter.SetModel(model); //liens presenter model
-view.registerWith(presenter); //liens view presenter
+presenter.SetModel(model); 
+view.registerWith(presenter); 
 // console.log(presenter)
 // console.log(view)
 // console.log(model)
-
-
-
-
-
-
-
-
-
-
-
