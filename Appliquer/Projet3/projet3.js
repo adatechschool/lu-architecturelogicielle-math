@@ -67,8 +67,7 @@ class View {
 
 function submit_by_id() {
     console.log(model);
-    let Password = document.getElementById("MDP").value;
-    document.getElementById("form_id").submit(); 
+    let Password = document.getElementById("MDP").value; 
     presenter.ChangePassword(Password);
 }
 
