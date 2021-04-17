@@ -1,0 +1,16 @@
+MODEL
+func init(name: String, email: String) //initializer for a User object
+func setName(name: String) //set a new name value to the User object
+func getRandomName() -> String //return a random name from a list that is given in file ressources
+
+PRESENTER
+func updateName(name: String) // Update the name of the user
+func updateEmail(email: String) // Update the emali of the user
+func onButtonClick() //called when the button is clicked to change the user name
+
+VIEW
+func showProgressBar() //display the progress bar
+func hideProgressBar() //hide the progress bar
+func showError(message: String) //display an error message to the user
+func updateUsernameLabel(string: String?) //udpate the label of user name with the given text
+func setUpLayout() //set the positions and size of labels and button
